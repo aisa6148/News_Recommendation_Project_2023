@@ -37,16 +37,16 @@ def calculate_ndcg_at_k(df, k):
 def calculate_auc(df):
     return roc_auc_score(df["label"], df["pred"])
 
-def graph_ndcg(ndcgs, lamdas, k):
+def graph_ndcg(ndcgs, lamdas, k, model_name):
     plt.plot(lamdas, ndcgs)
-    plt.title(f"NDCG@{k} based on lambda")
+    plt.title(f"NDCG@{k} based on lambda: {model_name}")
     plt.xlabel("Lambda")
     plt.ylabel(f"NDCG@{k}")
     plt.show()
 
-def graph_diversity(diversities, lamdas):
+def graph_diversity(diversities, lamdas, model_name):
     plt.plot(lamdas, diversities)
-    plt.title(f"Diversity based on lambda")
+    plt.title(f"Diversity based on lambda: {model_name}")
     plt.xlabel("Lambda")
     plt.ylabel("Diversity")
     plt.show()
